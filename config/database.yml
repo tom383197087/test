@@ -9,20 +9,21 @@ default: &default
   encoding: utf8
   pool: 5
   timeout: 5000
-  username: root
-  password:  123456
-  host: localhost
+  username: #{ENV['MYSQL_USERNAME']}
+  password:  #{ENV['MYSQL_PASSWORD']}
+  host: #{ENV['MYSQL_PORT_3306_TCP_ADDR']}
+  port:#{ENV['MYSQL_PORT_3306_TCP_PORT']}
 development:
   <<: *default
-  database: wxoss_server
+  database: #{ENV['MYSQL_INSTANCE_NAME']}"
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: wxoss_server
+  database: #{ENV['MYSQL_INSTANCE_NAME']}"
 
 production:
   <<: *default
-  database: wxoss_server
+  database: #{ENV['MYSQL_INSTANCE_NAME']}"

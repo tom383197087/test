@@ -10,9 +10,9 @@ default: &default
   pool: 5
   timeout: 5000
   username: ENV['MYSQL_USERNAME']
-  password:  #{ENV['MYSQL_PASSWORD']}
+  password:  ENV['MYSQL_PASSWORD']
   host: ENV['MYSQL_PORT_3306_TCP_ADDR']
-  port:ENV['MYSQL_PORT_3306_TCP_PORT']
+  port: ENV['MYSQL_PORT_3306_TCP_PORT']
 development:
   <<: *default
   database: ENV['MYSQL_INSTANCE_NAME']
